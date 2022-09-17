@@ -17,25 +17,31 @@ public class Block {
         this.timeStamp = new Date().getTime();
         generateHash();
     }
+
     public void generateHash() {
-        String dataToHash = Integer.toString(id)+previousHash+
-                Long.toString(timeStamp)+
-                Integer.toString(nonce)+
+        String dataToHash = Integer.toString(id) + previousHash +
+                Long.toString(timeStamp) +
+                Integer.toString(nonce) +
                 transaction.toString();
         this.hash = SHA256Helper.generateHash(dataToHash);
     }
+
     public void incrementNonce() {
         this.nonce++;
     }
+
     public void setPreviousHash(String previousHash) {
         this.previousHash = previousHash;
     }
+
     public String getPreviousHash() {
         return this.previousHash;
     }
+
     public String getHash() {
         return this.hash;
     }
+
     public void setHash(String hash) {
         this.hash = hash;
     }

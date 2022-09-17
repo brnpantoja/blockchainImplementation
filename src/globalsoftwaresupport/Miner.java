@@ -22,6 +22,7 @@ public class Miner {
         String leadingZeros = new String(new char[Constants.DIFFICULTY]).replace('\0', '0');
         return block.getHash().substring(0, Constants.DIFFICULTY).equals(leadingZeros);
     }
+
     public double getReward() {
         return this.reward;
     }
